@@ -25,7 +25,11 @@
 						"referenceName": "table_synapse_nycpayroll_summary",
 						"type": "DatasetReference"
 					},
-					"name": "tgtsasummarypayroll"
+					"name": "tgtsasummarypayroll",
+					"rejectedDataLinkedService": {
+						"referenceName": "AzureDataLakeStorage1",
+						"type": "LinkedServiceReference"
+					}
 				}
 			],
 			"transformations": [
