@@ -21,7 +21,7 @@
 					},
 					"staging": {
 						"linkedService": {
-							"referenceName": "AzureBlobStorage1",
+							"referenceName": "AzureDataLakeStorage1",
 							"type": "LinkedServiceReference"
 						},
 						"folderPath": "adlsnycpayroll-mai-n/dirstaging"
@@ -52,7 +52,7 @@
 					},
 					"staging": {
 						"linkedService": {
-							"referenceName": "AzureBlobStorage1",
+							"referenceName": "AzureDataLakeStorage1",
 							"type": "LinkedServiceReference"
 						},
 						"folderPath": "adlsnycpayroll-mai-n/dirstaging"
@@ -83,7 +83,7 @@
 					},
 					"staging": {
 						"linkedService": {
-							"referenceName": "AzureBlobStorage1",
+							"referenceName": "AzureDataLakeStorage1",
 							"type": "LinkedServiceReference"
 						},
 						"folderPath": "adlsnycpayroll-mai-n/dirstaging"
@@ -133,7 +133,7 @@
 					},
 					"staging": {
 						"linkedService": {
-							"referenceName": "AzureBlobStorage1",
+							"referenceName": "AzureDataLakeStorage1",
 							"type": "LinkedServiceReference"
 						},
 						"folderPath": "adlsnycpayroll-mai-n/dirstaging"
