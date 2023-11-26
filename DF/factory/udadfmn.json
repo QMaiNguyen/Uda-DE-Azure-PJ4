@@ -1,0 +1,9 @@
+{
+	"name": "udadfmn",
+	"location": "southeastasia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "6d1ce559-a7c8-433a-9469-3272d46a05de",
+		"tenantId": "af494647-cb58-4bd2-a54c-d1ffd32c8d69"
+	}
+}

@@ -1,0 +1,153 @@
+{
+	"name": "pl_all_to_sa",
+	"properties": {
+		"activities": [
+			{
+				"name": "df_emp_bs_to_sa",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "df_emp_bs_to_sa",
+						"type": "DataFlowReference"
+					},
+					"staging": {
+						"linkedService": {
+							"referenceName": "AzureBlobStorage1",
+							"type": "LinkedServiceReference"
+						},
+						"folderPath": "adlsnycpayroll-mai-n/dirstaging"
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
+			},
+			{
+				"name": "df_agency_bs_to_sa",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "df_agency_bs_to_sa",
+						"type": "DataFlowReference"
+					},
+					"staging": {
+						"linkedService": {
+							"referenceName": "AzureBlobStorage1",
+							"type": "LinkedServiceReference"
+						},
+						"folderPath": "adlsnycpayroll-mai-n/dirstaging"
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
+			},
+			{
+				"name": "df_title_bs_to_sa",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "df_title_bs_to_sa",
+						"type": "DataFlowReference"
+					},
+					"staging": {
+						"linkedService": {
+							"referenceName": "AzureBlobStorage1",
+							"type": "LinkedServiceReference"
+						},
+						"folderPath": "adlsnycpayroll-mai-n/dirstaging"
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
+			},
+			{
+				"name": "df_payroll_sql_to_sa",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [
+					{
+						"activity": "df_emp_bs_to_sa",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "df_agency_bs_to_sa",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "df_title_bs_to_sa",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "df_payroll_sql_to_sa",
+						"type": "DataFlowReference"
+					},
+					"staging": {
+						"linkedService": {
+							"referenceName": "AzureBlobStorage1",
+							"type": "LinkedServiceReference"
+						},
+						"folderPath": "adlsnycpayroll-mai-n/dirstaging"
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2023-11-26T04:14:07Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
